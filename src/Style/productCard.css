@@ -1,0 +1,32 @@
+.card__img {
+    cursor: pointer;
+}
+
+.card__title h3 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.card__title span {
+    font-size: 0.9rem;
+}
+
+.card__bottom .price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card__bottom .add i {
+    font-size: 20px;
+    padding: 7px; 
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    color: #fff;
+
+}
+
+.add {
+    cursor: pointer;
+}

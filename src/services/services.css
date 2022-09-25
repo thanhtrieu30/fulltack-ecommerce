@@ -1,0 +1,36 @@
+.itemServices {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    column-gap: 0.7rem;
+    border-radius: 5px;
+    background: var(--vard-bg-01);
+    cursor: pointer;
+}
+
+.itemServices span i {
+    font-size: 2.2rem;
+    background: var(--primary-color);
+    padding: 10px;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 400 !important;
+}
+
+.itemServices h3 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 768px ) {
+    .itemServices {
+        padding: 10px;
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+    }
+    .itemServices span i  {
+        font-size: 1.5rem;
+    }
+}

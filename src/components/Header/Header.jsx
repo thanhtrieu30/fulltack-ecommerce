@@ -6,6 +6,8 @@ import userIcon from '../../assets/images/user-icon.png'
 
 import {Container , Row} from 'reactstrap'
 import {motion} from 'framer-motion'
+import { useRef } from 'react'
+import { useEffect } from 'react'
 
 const nav__link = [
     {
@@ -24,8 +26,31 @@ const nav__link = [
 ]
 
 const Header = () => {
+    const headerRef = useRef(null);
+    const menu = useRef(null);
+    const stickyHeaderFunction = () => {
+        window.addEventListener('scroll', ()=> {
+            if (
+                document.documentElement.scrollTop > 80
+            ) {
+                headerRef.current.classList.add("sticky__header");
+            }else {
+                headerRef.current.classList.remove("sticky__header");
+            }
+        })
+    }
+
+    useEffect(() => {
+        stickyHeaderFunction();
+        return () => window.removeEventListener('scroll',stickyHeaderFunction);
+    })
+
+    const menuToggle = () => {
+        menu.current.classList.toggle('active__menu')
+    }
+
   return (
-    <header>
+    <header ref={headerRef}>
         <Container>
             <Row>
                 <div className='nav__wrapper'>
@@ -36,7 +61,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className="navigation">
+                    <div className="navigation" ref={menu} onClick={menuToggle}>
                         <ul className="menu">
                             {nav__link.map((item , index) => (
                                 <li className="nav__item" key={index}>
@@ -56,12 +81,13 @@ const Header = () => {
                             <span className='badge'>1</span>
                         </span>
                         <span><motion.img whileTap={{scale: 1.2 }} src={userIcon} alt="user" /></span>
-                    </div>
-
-                    {/* menu-mobile */}
-                    <div className="menu__mobile">
+                        {/* menu-mobile */}
+                    <div className="menu__mobile" onClick={menuToggle}>
                         <span><i class="ri-menu-line"></i></span>
                     </div>
+                    </div>
+
+                    
 
                 </div>
             </Row>
