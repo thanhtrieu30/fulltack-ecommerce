@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Header/header.css'
-import {NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import logo from '../../assets/images/eco-logo.png'
 import userIcon from '../../assets/images/user-icon.png'
 
@@ -8,6 +8,7 @@ import {Container , Row} from 'reactstrap'
 import {motion} from 'framer-motion'
 import { useRef } from 'react'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const nav__link = [
     {
@@ -26,6 +27,7 @@ const nav__link = [
 ]
 
 const Header = () => {
+    const selector = useSelector(state => state.cart.totalQuantity);
     const headerRef = useRef(null);
     const menu = useRef(null);
     const stickyHeaderFunction = () => {
@@ -76,10 +78,13 @@ const Header = () => {
                             <i class="ri-heart-line"></i>
                             <span className='badge'>1</span>
                         </span>
+                        
                         <span className='cart-icon'>
-                            <i class="ri-shopping-bag-line"></i>
-                            <span className='badge'>1</span>
+                        <Link to='/cart'> <i class="ri-shopping-bag-line"></i> 
+                            <span className='badge'>{selector}</span>
+                            </Link>
                         </span>
+                        
                         <span><motion.img whileTap={{scale: 1.2 }} src={userIcon} alt="user" /></span>
                         {/* menu-mobile */}
                     <div className="menu__mobile" onClick={menuToggle}>

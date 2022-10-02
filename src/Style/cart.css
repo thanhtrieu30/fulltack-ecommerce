@@ -1,0 +1,30 @@
+.table tr td img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover;
+}
+.table tr td p {
+    color: var(--primary-color);
+    line-height: 80px;
+    font-weight: 600;
+
+}
+.table tr td p i {
+    cursor: pointer;
+}
+
+
+.total h6 {
+ font-size: 20px;
+ font-weight: 600;
+ margin-bottom: 20px;
+ 
+}
+
+.total span {
+    
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(236, 90, 22);
+   }
+
